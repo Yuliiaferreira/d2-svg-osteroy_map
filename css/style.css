@@ -1,0 +1,35 @@
+[id^="terminal_"] {
+    transition: fill 1s, transform 1s;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+[id^="terminal_"]:hover {
+    fill: red;
+    transform: scale(1.2);
+}
+[id^="routeline_"] {
+    transition: stroke 1s, stroke-width 1s;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+[id^="routeline_"]:hover {
+    stroke: rgb(247, 113, 79);
+    stroke-width: 10px;
+}
+
+[id^="popup_"] {
+    opacity: 0;
+    transition: opasity .4s;
+}
+
+.popup-open {
+    opacity: 1;
+}
+[id^="_"] {
+    opacity: 0;
+    transition: opasity .4s;
+}
+.routeline-higlight {
+    stroke: rgb(247, 113, 79);
+}
