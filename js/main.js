@@ -1,7 +1,5 @@
 document.querySelectorAll('[id^="terminal_"]').forEach(function(terminalElem) {
     console.log(terminalElem.id, terminalElem);
-    document.querySelectorAll('[id^="bus_"]').forEach(function(busElem) {
-        console.log(busElem.id, busElem);
     
     const popupIt = "popup_" + terminalElem.id.split("_")[1];
 
@@ -13,32 +11,49 @@ document.querySelectorAll('[id^="terminal_"]').forEach(function(terminalElem) {
     terminalElem.addEventListener("mouseout", function(event) {
         popupElem.classList.remove("popup-open");
     });
-    busElem.addEventListener("mouseover", function(event) {
-        popupElem.classList.add("routeline-higlight");
-    });
-    busElem.addEventListener("mouseout", function(event) {
-        popupElem.classList.remove("routeline-higlight");
-    });
-
-    });
 });
-/*
+
 document.querySelectorAll('[id^="bus_"]').forEach(function(busElem) {
     console.log(busElem.id, busElem);
 
-    const higlightRoute = "routeline_" + busElem.id.split("_")[1];
-    const higlightBus = document.getElementById(higlightRoute);
+    const splitRoute = "routeline_" + busElem.id.split("_")[1];
+
+    const splitElem = document.getElementById(splitRoute);
+    
     busElem.addEventListener("mouseover", function(event) {
-        higlightBus.classList.add("routeline-higlight");
+       splitElem.classList.add("routeline-active");
     });
     busElem.addEventListener("mouseout", function(event) {
-        higlightBus.classList.remove("routeline-higlight");
+        splitElem.classList.remove("routeline-active");
     });
-});*/
+});
+
+document.querySelectorAll('[id^="routeline_"]').forEach(function(routeElem) {
+    console.log(routeElem.id, routeElem);
+
+    const splitBus = "bus_" + routeElem.id.split("_")[1];
+
+    const busClass = document.getElementById(splitBus);
+    
+    routeElem.addEventListener("mouseover", function(event) {
+        busClass.classList.add("bus-active");
+    });
+    routeElem.addEventListener("mouseout", function(event) {
+        busClass.classList.remove("bus-active");
+    });
+});
 
 document.querySelectorAll('[id^="routeline_"]').forEach(function(routeline) {
     routeline.addEventListener("mouseover", function(event) {
         // move the line to the front
         event.currentTarget.parentElement.append(event.currentTarget);
     });
+    //console.log(routeline);
+});
+
+document.querySelectorAll('[id^="bus_"]').forEach(function(routeBus) {
+    routeBus.addEventListener("mouseover", function(event) {
+        event.currentTarget.parentElement.append(event.currentTarget);
+    });
+    //console.log(routeBus);
 });

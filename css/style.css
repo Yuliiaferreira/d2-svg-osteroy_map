@@ -13,8 +13,9 @@
     transform-box: fill-box;
 }
 
-[id^="routeline_"]:hover {
-    stroke: rgb(247, 113, 79);
+[id^="routeline_"]:hover,
+.routeline-active {
+    stroke: rgb(8, 185, 255);
     stroke-width: 10px;
 }
 
@@ -26,10 +27,12 @@
 .popup-open {
     opacity: 1;
 }
-[id^="_"] {
-    opacity: 0;
-    transition: opasity .4s;
+[id^="bus_"] {
+    transition: transform .4s;
+    transform-origin: center;
+    transform-box: fill-box;
 }
-.routeline-higlight {
-    stroke: rgb(247, 113, 79);
+[id^="bus_"]:hover,
+.bus-active {
+    transform: scale(1.2);
 }
